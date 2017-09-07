@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<bean id="applicationContextHelper" class="cn.hulian.mUtil.ApplicationContextHelper"></bean>
+
+	<!-- 引入配置文件 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:properties/db.properties" />
+	</bean>
+
+	<!--定义一个jdbc数据源，创建一个驱动管理数据源的bean -->
+	<bean id="jdbcDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<!-- 初始化连接大小 <property name="initialSize" value="${initialSize}" /> 连接池最大数量 
+			<property name="maxActive" value="${maxActive}" /> -->
+	</bean>
+
+	<!--创建一个sql会话工厂bean，指定数据源 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="jdbcDataSource" /><!-- 指定数据源 -->
+
+		<!--类型别名包，默认引入cn.hulian.mEntity下的所有类 -->
+		<property name="typeAliasesPackage" value="cn.hulian.mEntity"></property>
+
+		<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+		<property name="mapperLocations" value="classpath:mapper/*Mapper.xml"></property>
+	</bean>
+
+	<!--自动扫描映射接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 指定sql会话工厂，在上面配置过的 -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<!-- 指定基础包，即自动扫描cn.hulian.mDao下所有映射接口 -->
+		<property name="basePackage" value="cn.hulian.mDao"></property>
+	</bean>
+
+</beans>

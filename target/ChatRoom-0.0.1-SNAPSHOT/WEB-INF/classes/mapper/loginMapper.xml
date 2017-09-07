@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hulian.mDao.ILoginMapper">
+    <select id="queryNickname" parameterType="String" resultType="String">
+        select u_name from c_user where u_name=#{_parameter}
+    </select>
+    <insert id="insertUser" parameterType="cn.hulian.mEntity.User">
+        insert into c_user(u_name,u_password,u_sex,u_avatarurl,u_oldname) values(#{u_name},#{u_password},#{u_sex},#{u_avatarurl},#{u_oldname})
+    </insert>
+    <select id="queryPassword" parameterType="String" resultType="String">
+        select u_password from c_user where u_name=#{_parameter} 
+    </select>
+</mapper>

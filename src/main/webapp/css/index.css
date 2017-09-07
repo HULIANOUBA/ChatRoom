@@ -1,0 +1,206 @@
+@CHARSET "UTF-8";
+
+a {
+	text-decoration: none;
+}
+
+#chatPage, #privateChatPage {
+	position: relative;
+}
+
+#chatPageHeader {
+	background-color: #6495ED;
+}
+
+#chatPageHeader a, #chatPageHeader h2 {
+	background-color: #6495ED;
+	color: white;
+}
+
+#chatPage button {
+	width: 100px;
+	text-align: center;
+	background-color: #6495ED;
+}
+
+#contentShowDiv, #p_contentShowDiv {
+	height: 530px;
+	overflow: scroll;
+	word-wrap: break-word;
+	box-sizing: border-box;
+}
+
+.footer, .p_footer {
+	margin-top:10px;
+	position: absolute;
+	top: 90%;
+}
+
+#contentUl {
+	position: relative;
+}
+
+li {
+	list-style-type: none;
+	margin-top: 20px;
+}
+
+.selfli {
+	position: relative;
+}
+
+.selfpic {
+	display: inline-block;
+	position: relative;
+	left: 20px;
+}
+
+.selftimeandcontent {
+	position: relative;
+	display: inline-block;
+	right: 0px;
+	top: -15px;
+	padding: 10px;
+	width: 200px;
+	background-color: #6495ED;
+	border-radius: 6px;
+	font-weight: bold;
+}
+
+.pic {
+	display: inline-block;
+	padding: 5px;
+	position: relative;
+	right: 35px;
+}
+
+.timeandcontent {
+	position: relative;
+	right: 20px;
+	top: -15px;
+	display: inline-block;
+	padding: 10px;
+	width: 200px;
+	background-color: #6495ED;
+	border-radius: 6px;
+	font-weight: bold;
+}
+
+#contentUl span, #p_contentUl span {
+	display: block;
+}
+
+#nickNameDiv {
+	width: 100px;
+	display: inline-block;
+	padding: 10px;
+}
+
+.mPageSpan {
+	margin-left: 20px;
+}
+
+img {
+	margin: 0 auto;
+	display: block;
+}
+
+.foot {
+	padding-left: 200px;
+}
+
+#privateChatPageHeader, #privateChatPage button {
+	background-color: #CDC673;
+}
+
+#privateChatPage a {
+	background-color: #CDC9A5;
+}
+
+.systemNotice {
+	text-align: center;
+	background-color: #DBDBDB;
+	width: 200px;
+	margin-left: 12%;
+	border-radius: 5px;
+}
+
+#msgDiv, #userDiv {
+	overflow: scroll;
+}
+
+#msgList li {
+	border-bottom: 1px dashed gray;
+	border-top: 1px dashed gray;
+	position: relative;
+	box-sizing: border-box;
+	width: 220px;
+	right: 45px;
+	padding-bottom: 0px;
+}
+
+.div1 {
+	display: inline-block;
+	padding: 10px;
+}
+
+.div2 {
+	display: inline-block;
+	padding: 5px;
+	height: 70px;
+	width: 60%;
+	position: relative;
+}
+
+.nameSpan {
+	display: inline-block;
+	font-weight: 600;
+	height: 30px;
+	width: 55%;
+	overflow: hidden;
+	line-height: 40px;
+}
+
+.contentSpan {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+
+.timeSpan {
+	display: inline-block;
+	height: 30px;
+	color: gray;
+	margin-left: 10px;
+}
+
+.redPoint {
+	position: relative;
+}
+
+.redPoint::before {
+	content: " ";
+	border: 8px solid red; /*设置红色*/
+	border-radius: 8px; /*设置圆角*/
+	position: absolute;
+	z-index: 1000;
+	left: 100px;
+	top: -18px;
+}
+
+#nomsg {
+	padding-left: 30px;
+}
+
+#myPop {
+	width: 50px;
+	position: "absolute";
+}
+
+#myPop ul li {
+	border-bottom: 1px solid gray;
+	text-align: center;
+	padding: 5px;
+	margin-left: -50px;
+}
